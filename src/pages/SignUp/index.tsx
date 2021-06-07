@@ -1,5 +1,6 @@
 import React from 'react';
-import { FiArrowLeft ,FiLogIn, FiMail, FiUser, FiLock } from 'react-icons/fi';
+import { FiArrowLeft, FiMail, FiUser, FiLock } from 'react-icons/fi';
+import { Form } from '@unform/web';
 
 import logoimg from '../../assets/logo.svg';
 import Input from '../../components/Input';
@@ -7,12 +8,17 @@ import Button from '../../components/Button';
 
 import { Container, Content, Background } from './styles';
 
-const SignUp: React.FC = () => (
-    <Container>
+const SignUp: React.FC = () => {
+    function handleSubmit(data: string): void {
+        console.log(data);
+    }
+
+    return (
+        <Container>
         <Background />
         <Content>
             <img src={logoimg} alt="GoBarber" />
-            <form>
+            <Form onSubmit={handleSubmit}>
                 <h1>Face seu cadastro</h1>
 
                 <Input name="email" icon={FiUser} placeholder="Nome" />
@@ -21,7 +27,7 @@ const SignUp: React.FC = () => (
 
                 <Button type="submit"> Entrar</Button>
 
-            </form>
+            </Form>
 
             <a href="Login">
                 <FiArrowLeft />
@@ -30,6 +36,7 @@ const SignUp: React.FC = () => (
 
 
     </Container>
-);
+    );
+};
 
 export default SignUp;
