@@ -62,7 +62,7 @@ const SignUp: React.FC = () => {
             addToast({
                 type: 'error',
                 title: 'Erro no cadastro',
-                description: 'Ocorreu erro ao fazer cadastro, tente novamente.',
+                description: 'Ocorreu erro ao fazer cadastro, este email ja existe.'
             });
         }
     }, [addToast, history]);
